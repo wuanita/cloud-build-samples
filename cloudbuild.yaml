@@ -1,13 +1,13 @@
 steps:
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/anita-test-265821/github.com/wuanita/gcb-test', '.']
+  args: ['build', '-t', 'gcr.io/anita-test-265821/helloworld-image', '.']
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/anita-test-265821/github.com/wuanita/gcb-test']
+  args: ['push', 'gcr.io/anita-test-265821/helloworld-image']
 # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
-  args: ['run', 'deploy', 'asdfds', '--image', 'gcr.io/anita-test-265821/github.com/wuanita/gcb-test', '--region', 'us-central1']
+  args: ['run', 'deploy', 'asdfds', '--image', 'gcr.io/anita-test-265821/helloworld-image', '--region', 'us-central1']
 images:
-- gcr.io/anita-test-265821/github.com/wuanita/gcb-test
+- gcr.io/anita-test-265821/helloworld-image
